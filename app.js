@@ -9,14 +9,15 @@ let credentials = require('./credentials');//store mongodb credentials in separa
 var db_admin = credentials.getCredentials();
 console.log(db_admin);
 
+//monk will be our db connection tool
 var monk = require('monk');
-//connect to Atlas
-var uri = "mongodb+srv://" + db_admin.username + ":" + db_admin.password + "@cluster0-i3nnd.gcp.mongodb.net/test?retryWrites=true&w=majority";
+//connection to Atlas
+var uri = "mongodb+srv://" + db_admin.username + ":" + db_admin.password + "@cluster0-i3nnd.gcp.mongodb.net/test_db?retryWrites=true&w=majority";
 var db = monk(uri);
 
 db.then(()=>{
-  console.log('Connected to server')
-  });
+  console.log('Connected to server');
+});
 
 const collection = db.get('test_collection');
 
