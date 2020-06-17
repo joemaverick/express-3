@@ -7,7 +7,7 @@ var logger = require('morgan');
 
 let credentials = require('./credentials');//store mongodb credentials in separate, non-tracked file
 var db_admin = credentials.getCredentials();
-//console.log(db_admin);
+console.log(db_admin);
 
 var monk = require('monk');
 //connect to Atlas
